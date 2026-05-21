@@ -5,23 +5,23 @@
 class Stella < Formula
   desc "Self-hosted AI assistant"
   homepage "https://stella.cherryin.com"
-  version "0.35.1"
+  version "0.35.2"
   license "AGPL-3.0-or-later"
 
   depends_on "bubblewrap" if OS.linux?
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.35.1/stella_0.35.1_darwin_amd64.tar.gz"
-      sha256 "b279949de8953329814c489e1f0707acdae2a4b9978472de07ad6d9d2c1c7dca"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.35.2/stella_0.35.2_darwin_amd64.tar.gz"
+      sha256 "cb9177a5636665c79dccc5d546d654d3bae31bc07048dd2a7571a30b3f4e459a"
 
       define_method(:install) do
         bin.install "stella"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.35.1/stella_0.35.1_darwin_arm64.tar.gz"
-      sha256 "764e1cb604129e269eb0ed798ddb81d9a54a511134d155f631960e568e4d8458"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.35.2/stella_0.35.2_darwin_arm64.tar.gz"
+      sha256 "26bdbb19bd4e15b50ace5d8515092e10f106f74ea391b3dfda0c51a96d6031f0"
 
       define_method(:install) do
         bin.install "stella"
@@ -31,15 +31,15 @@ class Stella < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.35.1/stella_0.35.1_linux_amd64.tar.gz"
-      sha256 "c403566ba62d5a4fe50dd820288d0c73f4271838a9436eec819825bda29423ef"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.35.2/stella_0.35.2_linux_amd64.tar.gz"
+      sha256 "eb297cbe1c0574038da3bc12706207e7302c44d01c2db9b20fb926236fca28ba"
       define_method(:install) do
         bin.install "stella"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.35.1/stella_0.35.1_linux_arm64.tar.gz"
-      sha256 "a8b594176bfb6796bf0efa37cc194bfa9c03282fcaf560ff21db31efaa78742e"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.35.2/stella_0.35.2_linux_arm64.tar.gz"
+      sha256 "d946c48a3fda3eaadb9966ae49173cd2ad62b9925a4a773e9f5e7f6e814840c0"
       define_method(:install) do
         bin.install "stella"
       end
