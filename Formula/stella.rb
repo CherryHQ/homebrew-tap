@@ -13,7 +13,7 @@ class Stella < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/CherryHQ/stella/releases/download/v0.37.0/stella_0.37.0_darwin_amd64.tar.gz"
-      sha256 "52d9faaffb1ffd023ea693c9a83b0d7f85380ceaf42000567fa71b55e3370a80"
+      sha256 "6ed7cc607757a2665799cc8f69f6ec3ac7bac61da334b2c3a1934b26f20cf017"
 
       define_method(:install) do
         bin.install "stella"
@@ -21,7 +21,7 @@ class Stella < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/CherryHQ/stella/releases/download/v0.37.0/stella_0.37.0_darwin_arm64.tar.gz"
-      sha256 "c3dc94ba90c1ac052d385795f19401a9221b3301f46d1f00f6ef184544082f77"
+      sha256 "b36a32c9aae7e4c45c75c6471ebfdffc743657f252f0bf95366738aead16b7a4"
 
       define_method(:install) do
         bin.install "stella"
@@ -32,14 +32,14 @@ class Stella < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/CherryHQ/stella/releases/download/v0.37.0/stella_0.37.0_linux_amd64.tar.gz"
-      sha256 "c55318c1c209938b7b4ec31aa0822e20a89b4cffd6d934b95733126e2989d07c"
+      sha256 "74632d5768fe24b0326041e9b8c56f515cbb1d0655b85863f243ef2015617465"
       define_method(:install) do
         bin.install "stella"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/CherryHQ/stella/releases/download/v0.37.0/stella_0.37.0_linux_arm64.tar.gz"
-      sha256 "a6a7c2505b5e37db693aa2416d16e7448df1a9b214e0d76ecb04b7483d95fbdb"
+      sha256 "bd7e4b9d6e6b82fca82061f33be4c8b86e71ba53ad5dca8c06b6b6ef69ff47f3"
       define_method(:install) do
         bin.install "stella"
       end
