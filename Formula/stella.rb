@@ -5,49 +5,53 @@
 class Stella < Formula
   desc "Self-hosted AI assistant"
   homepage "https://stella.cherryin.com"
-  version "0.42.1"
+  version "0.43.0"
   license "AGPL-3.0-or-later"
 
   depends_on "bubblewrap" if OS.linux?
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.42.1/stella_0.42.1_darwin_amd64.tar.gz"
-      sha256 "f62ee7ad1811b9c53ae295132c51261a2a65eee2ba279329d3bdfc56e1778173"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.43.0/stella_0.43.0_darwin_amd64.tar.gz"
+      sha256 "b5c354d60696a5ee2fb3997a410497bf5f4c0f2140258305a93c51d1d3955246"
 
       define_method(:install) do
         bin.install "stella"
+        bin.install "stellad"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.42.1/stella_0.42.1_darwin_arm64.tar.gz"
-      sha256 "94dd41da9b37679853cbe5cd8d9717886c7d5236c17118d49696970b233e0161"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.43.0/stella_0.43.0_darwin_arm64.tar.gz"
+      sha256 "cba8299f7159a07d9f022a12149a4de79aa1cb15cee00d42629b9f8f98856757"
 
       define_method(:install) do
         bin.install "stella"
+        bin.install "stellad"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.42.1/stella_0.42.1_linux_amd64.tar.gz"
-      sha256 "d7acff7fe67c74fa476f09669c78f9b911085eaa0c9f8d2d996a6cc502fd64d9"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.43.0/stella_0.43.0_linux_amd64.tar.gz"
+      sha256 "92994135e4f5d6e046c42531c0405674664c9841437caf3a1da399744b591e69"
       define_method(:install) do
         bin.install "stella"
+        bin.install "stellad"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/CherryHQ/stella/releases/download/v0.42.1/stella_0.42.1_linux_arm64.tar.gz"
-      sha256 "2a0c45a2aabc33af4ae8146f9181d340a735ceb4544e0ee3db98b1cf8188572d"
+      url "https://github.com/CherryHQ/stella/releases/download/v0.43.0/stella_0.43.0_linux_arm64.tar.gz"
+      sha256 "6902bfa2d1baca85dc5b52d7c155319547b8e6e0e3116493e2bff0138ed13cc2"
       define_method(:install) do
         bin.install "stella"
+        bin.install "stellad"
       end
     end
   end
 
   service do
-    run [opt_bin/"stella", "server"]
+    run [opt_bin/"stellad", "server"]
     keep_alive crashed: true
     log_path var/"log/stella.log"
     error_log_path var/"log/stella.log"
@@ -55,5 +59,6 @@ class Stella < Formula
 
   test do
     system "#{bin}/stella", "version"
+    system "#{bin}/stellad", "version"
   end
 end
